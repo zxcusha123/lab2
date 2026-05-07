@@ -34,4 +34,4 @@ jobs:
         with:
           name: test-output
 
-          path: build/mtd_lab2
+          path: build/figures
