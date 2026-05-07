@@ -1,27 +1,41 @@
 #pragma once
 
-class Triangle
-{
+
+class Form {
+protected:
     unsigned int m_offset;
+
+public:
+    Form(unsigned int offset) : m_offset(offset) {}
+
+
+    void setOffset(unsigned int offset) {
+        m_offset = offset;
+    }
+
+    virtual void draw() const = 0;
+    virtual ~Form() = default;
+};
+
+
+class Triangle : public Form {
     const unsigned int m_leg_length;
 
 public:
-    Triangle(unsigned int offset, unsigned int leg_length) : m_offset(offset), m_leg_length(leg_length) {}
-    void draw() const;
-    void setOffset(unsigned int offset) {
-        m_offset = offset;
-    }
+
+    Triangle(unsigned int offset, unsigned int leg_length)
+        : Form(offset), m_leg_length(leg_length) {}
+
+    void draw() const override;
 };
 
-class Circle
-{
-    unsigned int m_offset;
+
+class Circle : public Form {
     const unsigned int m_radius;
 
 public:
-    Circle(unsigned int offset, unsigned int radius) : m_offset(offset), m_radius(radius) {}
-    void draw() const;
-    void setOffset(unsigned int offset) {
-        m_offset = offset;
-    }
+    Circle(unsigned int offset, unsigned int radius)
+        : Form(offset), m_radius(radius) {}
+
+    void draw() const override;
 };
