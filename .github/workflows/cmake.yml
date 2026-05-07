@@ -43,4 +43,4 @@ jobs:
         with:
           name: test-output
 
-          path: build/main
+          path: build/figures

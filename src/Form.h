@@ -2,7 +2,7 @@
 
 class Triangle
 {
-     unsigned int m_offset;
+    unsigned int m_offset;
     const unsigned int m_leg_length;
 
 public:
@@ -15,7 +15,7 @@ public:
 
 class Circle
 {
-     unsigned int m_offset;
+    unsigned int m_offset;
     const unsigned int m_radius;
 
 public:
