@@ -3,17 +3,20 @@
 #include <cmath>
 #include <iostream>
 
+static void fill(char* str, unsigned int len, char c) {
+    for (unsigned int i = 0; i < len; ++i) {
+        str[i] = c;
+    }
+    str[len] = '\0'; // Тот самый терминальный ноль
+}
+
 void Triangle::draw() const
 {
-    char* spaces = new char[m_offset + 1];
-    for (int i = 0; i < m_offset; ++i)
-        spaces[i] = ' ';
-    spaces[m_offset] = '\0';
-    
-    char* top = new char[m_leg_length + 1];
-    for(int i=0; i < m_leg_length; ++i)
-        top[i] = '-';
-    top[m_leg_length] = '\0';
+    char spaces[m_offset + 1];
+    char top[m_leg_length + 1];
+
+    fill(spaces, m_offset, ' ');
+    fill(top, m_leg_length, '_');
         
     
     std::cout << spaces << '|' << top << std::endl;
@@ -26,16 +29,14 @@ void Triangle::draw() const
             std::cout << ' ';
         std::cout << '/' << std::endl;
     }
-    delete[] spaces;
-    delete[] top;
+
 }
 
 void Circle::draw() const
 {
-    char* spaces = new char[m_offset + 1];
-    for (int i = 0; i < m_offset; ++i)
-        spaces[i] = ' ';
-    spaces[m_offset] = '\0';
+    char spaces[m_offset + 1];
+
+    fill(spaces, m_offset, ' ');
     
     const unsigned int diameter = 2 * m_radius;
     const unsigned int radiusSquared = m_radius * m_radius;
@@ -52,5 +53,5 @@ void Circle::draw() const
         }
         std::cout << std::endl;
     }
-    delete[] spaces;
+
 }
