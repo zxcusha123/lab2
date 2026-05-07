@@ -2,11 +2,15 @@
 
 class Form {
     protected:
-    const unsigned int m_offset;
+    unsigned int m_offset;
     public:
     explicit Form(const unsigned int offset): m_offset(offset) {}
     virtual ~Form() = default;
     virtual void draw() const = 0;
+    void setOffset(unsigned int offset) {
+        m_offset = offset;
+    }
+
 };
 
 class Triangle: public Form

@@ -3,7 +3,7 @@
 int main()
 {
     Triangle tr(5, 10);
-    //tr.setOffset(10);
+    tr.setOffset(10);
     tr.draw();
 
     Circle c(3, 7);
