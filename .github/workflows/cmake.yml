@@ -22,7 +22,7 @@ jobs:
 
 
       - name: Configure CMake
-        run: cmake -B build -S src
+        run: cmake -B build
 
 
       - name: Build project
